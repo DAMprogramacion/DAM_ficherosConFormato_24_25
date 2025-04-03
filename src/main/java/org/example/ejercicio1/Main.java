@@ -1,4 +1,4 @@
-package org.example;
+package org.example.ejercicio1;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -16,7 +16,7 @@ public class Main {
         Gson gson = new Gson();
         List<Person> people = null;
         try (Reader reader = Files.newBufferedReader(Paths.get("files/people.json"))) {
-            people = new Gson().fromJson(
+            people = gson.fromJson(
                     reader, new TypeToken<List<Person>>() {}.getType());
         } catch (IOException e) {
             throw new RuntimeException(e);
